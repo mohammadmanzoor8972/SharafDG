@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { store } from '../../redux/store';
 import { Link } from "react-router-dom";
+
 export class ProductDetails extends Component {
     
     render(){
@@ -10,10 +11,7 @@ export class ProductDetails extends Component {
         const {selectedProductId} = store.getState().products;
         debugger;
         return (
-        <div>
-        <h1>Product Detils</h1>
-       {selectedProductId.post_title}
-       {selectedProductId.post_title_ar}
-        </div>)
+      <h1>Hello</h1>
+      )
     }
 }

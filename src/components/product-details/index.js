@@ -1,1 +1,1 @@
-export * from './product-details'
+export * from './product-details.jsx'

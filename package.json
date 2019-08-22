@@ -3,12 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1",
-    "yarn": "^1.17.3"
-=======
     "bootstrap": "^4.3.1",
     "node-sass": "^4.12.0",
     "react": "^16.8.3",
@@ -19,8 +13,8 @@
     "react-scripts": "2.1.5",
     "redux": "^4.0.1",
     "redux-saga": "^1.0.5",
-    "typescript": "^1.1.2"
->>>>>>> 9df8dc2743f09a16d09fe24c0354473c03764d0c
+    "typescript": "^1.1.2",
+    "yarn": "^1.17.3"
   },
   "scripts": {
     "start": "react-scripts start",

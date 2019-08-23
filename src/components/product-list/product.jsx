@@ -22,7 +22,47 @@ export class ProductListComponent extends Component {
     //  return this.props.products.map((item)=>{
            return (
           <div class="main-content">
-            <div class="panel-group">
+            <FilterPanel/>
+            
+        <div class="detail-panel">
+        {this.props.products.map((item)=>{
+              return  (<ProductItem {...item}/>)
+            })}
+         
+          
+        </div>
+    </div>
+        );
+       //})
+       
+    }
+}
+
+const ProductItem=({post_id, post_title, images, price, sale_price})=>{
+    return(
+        <div class="detail-panel-items" id={post_id}>
+        <div class="item-images">
+        <Link class="nav-link" to={"/productdet/"+post_id}><img src={images}/></Link>
+        </div>
+        <div class="title">
+            {post_title}
+        </div>
+        <div class="rating">
+            ******
+        </div>
+        <div class="save">
+           <span> AED {price}</span> <strong>Save 12%</strong>
+        </div>
+        <div class="price">
+            AED {sale_price}
+        </div>
+      </div>
+    )
+}
+
+const FilterPanel=({})=>{
+    return(
+        <div class="panel-group">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
@@ -233,130 +273,5 @@ export class ProductListComponent extends Component {
                         </div>
                     </div>
                 </div>
-        <div class="detail-panel">
-          <div class="detail-panel-items">
-            <div class="item-images">
-               <img src="https://s.sdgcdn.com/7/2018/09/903b5494f751ac985213e56652a4a7b624812a5a_alu_space_sport_black_s4_gallery1-300x300.jpg"/>
-            </div>
-            <div class="title">
-                Microsoft Xbox One Elite Wireless Controller, Black, HM3-0001
-            </div>
-            <div class="rating">
-                ******
-            </div>
-            <div class="save">
-               <span> AED 94</span> <strong>Save 12%</strong>
-            </div>
-            <div class="price">
-                AED 345
-            </div>
-          </div>
-          <div class="detail-panel-items">
-                <div class="item-images">
-                   <img src="https://s.sdgcdn.com/7/2018/09/5fd8cf36f5a8f6ade47a036c2c384dbea0c05835_alu_silver_sport_white_2-300x300.jpg"/>
-                </div>
-                <div class="title">
-                    Microsoft Xbox One Elite Wireless Controller, Black, HM3-0001
-                </div>
-                <div class="rating">
-                    ******
-                </div>
-                <div class="save">
-                   <span> AED 94</span> <strong>Save 12%</strong>
-                </div>
-                <div class="price">
-                    AED 345
-                </div>
-              </div>
-              <div class="detail-panel-items">
-                    <div class="item-images">
-                       <img src="https://s.sdgcdn.com/7/2018/09/c70973c44aee4931d8be58d8ef57f4bfe783586c_44_alu_gold_sport_pink_sand_nc_s4_gallery1-300x300.jpg"/>
-                    </div>
-                    <div class="title">
-                        Microsoft Xbox One Elite Wireless Controller, Black, HM3-0001
-                    </div>
-                    <div class="rating">
-                        ******
-                    </div>
-                    <div class="save">
-                       <span> AED 94</span> <strong>Save 12%</strong>
-                    </div>
-                    <div class="price">
-                        AED 345
-                    </div>
-                  </div>
-                  <div class="detail-panel-items">
-                        <div class="item-images">
-                           <img src="https://s.sdgcdn.com/7/2018/10/43fe974c323e8e497cecce8e801c405319448ea7_alu_space_sport_black_s4_gallery1-300x300.jpg"/>
-                        </div>
-                        <div class="title">
-                            Microsoft Xbox One Elite Wireless Controller, Black, HM3-0001
-                        </div>
-                        <div class="rating">
-                            ******
-                        </div>
-                        <div class="save">
-                           <span> AED 94</span> <strong>Save 12%</strong>
-                        </div>
-                        <div class="price">
-                            AED 345
-                        </div>
-                      </div>
-                      <div class="detail-panel-items">
-                            <div class="item-images">
-                               <img src="https://s.sdgcdn.com/7/2018/09/c2b2efd27d11fd8d8731a3cd7efdd9ac702ff44e_Series_3_Silver_Aluminium_Case_with_White_SportBand_1-300x300.jpg"/>
-                            </div>
-                            <div class="title">
-                                Microsoft Xbox One Elite Wireless Controller, Black, HM3-0001
-                            </div>
-                            <div class="rating">
-                                ******
-                            </div>
-                            <div class="save">
-                               <span> AED 94</span> <strong>Save 12%</strong>
-                            </div>
-                            <div class="price">
-                                AED 345
-                            </div>
-                          </div>
-                          <div class="detail-panel-items">
-                                <div class="item-images">
-                                   <img src="https://s.sdgcdn.com/7/2018/11/406ab6b9986785a11aafcfda75df7f08095451a0_MBA_PFOpen_Slvr_AE_AR.tif_PRINT-300x300.jpg"/>
-                                </div>
-                                <div class="title">
-                                    Microsoft Xbox One Elite Wireless Controller, Black, HM3-0001
-                                </div>
-                                <div class="rating">
-                                    ******
-                                </div>
-                                <div class="save">
-                                   <span> AED 94</span> <strong>Save 12%</strong>
-                                </div>
-                                <div class="price">
-                                    AED 345
-                                </div>
-                              </div>
-                              <div class="detail-panel-items">
-                                    <div class="item-images">
-                                       <img src="https://s.sdgcdn.com/7/2018/11/02e3434a34e7b4d9c3dca18b4a1be5dabbb654ac_MBA_PFOpen_Gold_AE_AR.tif_PRINT-300x300.jpg"/>
-                                    </div>
-                                    <div class="title">
-                                        Microsoft Xbox One Elite Wireless Controller, Black, HM3-0001
-                                    </div>
-                                    <div class="rating">
-                                        ******
-                                    </div>
-                                    <div class="save">
-                                       <span> AED 94</span> <strong>Save 12%</strong>
-                                    </div>
-                                    <div class="price">
-                                        AED 345
-                                    </div>
-                                  </div>
-        </div>
-    </div>
-        );
-       //})
-       
-    }
+    )
 }

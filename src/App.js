@@ -14,11 +14,11 @@ function App() {
     <div className="App">
       <Header/>
       <BrowserRouter>
-      <Switch>
-            <Route path='/products/' component={ProductListComponent} />
-            <Route path="/productdet/:productId" component={ProductDetailComponent}/>
-            </Switch>
-            </BrowserRouter>
+        <Switch>
+          <Route path='/products/' component={ProductListComponent} />
+          <Route path="/productdet/:productId" component={ProductDetailComponent}/>
+        </Switch>
+      </BrowserRouter>
     </div>
     </Provider>
   );

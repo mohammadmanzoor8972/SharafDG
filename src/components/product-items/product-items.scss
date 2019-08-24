@@ -1,0 +1,46 @@
+
+/*Items*/
+.detail-panel-items{
+
+    
+    display: grid;
+        grid-template-columns: auto;
+        grid-row-gap: 5px;
+        grid-template-rows: 265px auto auto auto auto;
+        width:273px;
+        padding: 15px;
+   
+        
+        .item-images img{
+    height: 90%;
+    }
+    
+    .item-images img:hover{
+        height: 92%;
+        }
+        
+        .title{
+    font-weight: bolder;
+    font-size: 1.1em;
+    overflow-wrap: break-word;
+    width:90%;
+    
+    }
+    
+    .price{
+    font-weight: bolder;
+    font-size: 1.6em;
+    
+    }
+    
+    .save span{
+    text-decoration:line-through;
+    }
+    
+    .save strong{
+    color:blue;
+    }
+
+}
+    
+    

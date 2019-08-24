@@ -1,20 +1,23 @@
-import { connect } from 'react-redux'
-import { getProducts, getIsLoading, getSelectedProductId } from '../redux/reducers/products'
-import { ACTIONS } from '../redux/actions/prodcuts'
-import { ProductListComponent } from '../components/product-list'
 
-const mapStateToProps = ({products}) => ({
-  isLoading: getIsLoading(products),
-  products: getProducts(products),
-  selectedUserId: getSelectedProductId(products),
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import {getProductsError, getProducts, getProductsPending} from '../redux/reducers';
+import fetchProducts from '../services/products.service';
+import { ProductListComponent } from '../components/product-list/product';
+
+
+const mapStateToProps = state => ({
+  error: getProductsError(state),
+  products: getProducts(state),
+  pending: getProductsPending(state)
 })
 
-const mapDispatchToProps = {
-  loadProducts: ACTIONS.fetchProducts,
-  selectUser: ACTIONS.selectProduct,
-}
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchProducts: fetchProducts
+}, dispatch)
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
-)(ProductListComponent)
+  mapDispatchToProps
+)(ProductListComponent);

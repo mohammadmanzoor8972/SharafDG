@@ -28,6 +28,7 @@ body {
             background-size: cover;
             float: left;
             margin-left: 6px;
+            cursor: pointer;
         }
 
 
@@ -75,14 +76,5 @@ body {
             background-color: #fff;
             border-radius: 5px;
             color: #195a8e;
-
-        }
-
-        .main-content {
-            padding: 10px 50px 10px 50px;
-            display: grid;
-            grid-template-columns: 15% auto;
-            grid-column-gap: 20px;
-            grid-template-rows: 100%;
 
         }

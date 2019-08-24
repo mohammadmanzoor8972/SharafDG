@@ -1,16 +1,28 @@
 import React, { Component } from 'react';
-import { store } from '../../redux/store';
-import { Link } from "react-router-dom";
 import './product-details.scss';
+import { StorageComponent } from '../common/storage';
+import { ScreenComponent } from '../common/screen';
+import { CpuComponent } from '../common/cpu';
+import { ColorComponent } from '../common/color';
+import StarRating from '../common/Ratings/star-rating';
 export class ProductDetails extends Component {
     
+  
+    constructor(props){
+      super(props)
+      window.scrollTo(0, 0);
+    }
     render(){
+       debugger;
         const productId = this.props.match.params.productId;
-       var obj = store.dispatch({"type":"products/SELECT_PRODUCT", 'selectedProductId':productId});
-        console.log(store.getState())
-        const {selectedProductId} = store.getState().products;
 
-        const {post_id, post_title, images, price, sale_price} = selectedProductId;
+        const {products} = this.props;
+
+        const selectedProduct= products.find((p)=>p.post_id==productId)
+
+        const {post_id, post_title, images, price, sale_price} = selectedProduct;
+
+      
         return (
     
           <div class="product-information">
@@ -23,13 +35,14 @@ export class ProductDetails extends Component {
                       </div>
                       <div class="title">{post_title}</div>
                       <div class="rating">
-                          <span>******</span> <span> 8 Customers </span>  <span> 3 Answered Questions </span>  | <span> Apple</span> 
+                      <StarRating totalStars={5} />
+                         <span> 8 Customers </span>  <span> 3 Answered Questions </span>  | <span> Apple</span> 
                       </div>
                       <div class="product-preview">
                           <div class="small-thumnbail">
-                              <img src="https://s.sdgcdn.com/7/2018/09/5fd8cf36f5a8f6ade47a036c2c384dbea0c05835_alu_silver_sport_white_2-300x300.jpg"/>
-                              <img src="https://s.sdgcdn.com/7/2018/09/5fd8cf36f5a8f6ade47a036c2c384dbea0c05835_alu_silver_sport_white_2-300x300.jpg"/>
-                              <img src="https://s.sdgcdn.com/7/2018/09/5fd8cf36f5a8f6ade47a036c2c384dbea0c05835_alu_silver_sport_white_2-300x300.jpg"/>
+                          <img src={images}/>
+                          <img src={images}/>
+                          <img src={images}/>
                           </div>
                           <div class="large-thumnbail">
                               <img src={images}/>
@@ -42,22 +55,10 @@ export class ProductDetails extends Component {
                           <span class="sell-price">AED {sale_price}</span>
                           <span class="save-price">Save AED 300</span> was AED {price}
                       </div>
-                      <div class="product-color">
-                         <span>Color : </span> <strong>Gold</strong>                      
-                         <img src="logo.svg"/>
-                      </div>
-                      <div class="product-size">
-                              <span>Screen Size : </span> <strong>13.3 Inch</strong>
-                              <img src="screen.png"/>
-                      </div>
-                      <div class="product-storage">
-                              <span>Storage : </span> <strong>256 GB</strong>
-                              <img src="storage.png"/>
-                      </div>
-                      <div class="product-cpu">
-                              <span>Processor : </span> <strong>Inter Core i7</strong>
-                              <img src="cpu.png"/>
-                      </div>
+                     <ColorComponent/>
+                      <ScreenComponent/>
+                      <StorageComponent/>
+                      <CpuComponent/>
                       <div class="product-ram">
                           <select>
                               <option>Ram: 8 GB</option>
@@ -117,4 +118,8 @@ export class ProductDetails extends Component {
       
       )
     }
+
+    
 }
+
+export default ProductDetails;
